@@ -1,4 +1,5 @@
 import pygame
+import sys
 from config import pantalla, fuente, TAMAÑO_FUENTE_CREDITOS, ANCHO, ALTO, NEGRO, ROJO, BLANCO
 
 
@@ -96,6 +97,8 @@ def mostrar_creditos(pantalla):
 
         if posiciones_y[-1] < -50:
             corriendo = False
+            pygame.exit()
+            sys.exit()
 
         pygame.display.flip()
         reloj.tick(60)
