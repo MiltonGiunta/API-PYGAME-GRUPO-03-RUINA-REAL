@@ -232,46 +232,25 @@ def main():
     aldeanos = Personaje("Aldeanos", imagen_aldeanos, (240, 400), 3000, 550, 600)
     #----------POSICION Y ESTADISITICAS DE LOS PERSONAJES---------------------#
     combate(jugador_, None, lobos)                                                    # comienza el primer combate 
-    if jugador_.vida <= 0:
-        if mostrar_pantalla_game_over(pantalla, fuente):
-            main()
-        else:
-            pygame.quit()
-            sys.exit()
-
+    
     play_cinematic(["cinematicas/bosque1.jpeg", "cinematicas/bosque2.png"], ["narrativa.py/Narracion 7 A.mp3", "narrativa.py/Narracion 7 B.mp3"])
     combate(jugador_, None, bandido, fondo_bosque)                                    # comienza el segundo combate
-    if jugador_.vida <= 0:
-        if mostrar_pantalla_game_over(pantalla, fuente):
-            main()
-        else:
-            pygame.quit()
-            sys.exit()
-
+    
     play_cinematic(["cinematicas/cinematic4.jpeg", "cinematicas/cinematic5.jpeg"], ["narrativa.py/Narracion 8.mp3", "narrativa.py/Narracion 9.mp3"])
     decision = mostrar_menu()
 
     jugador_.vida = jugador_.vida_max
     aliado_.vida = aliado_.vida_max
+    
     combate(jugador_, aliado_ if decision else None, aldeanos, fondo_casa)            # comienza el tercer combate 
-    if jugador_.vida <= 0:
-        if mostrar_pantalla_game_over(pantalla, fuente):
-            main()
-        else:
-            pygame.quit()
-            sys.exit()
-
+    
     play_cinematic(["cinematicas/cinematic6.jpeg", "cinematicas/cinematic7.jpeg", "cinematicas/cinematic8.jpeg"], ["narrativa.py/Narracion 11.mp3", "narrativa.py/Narracion 12.mp3", "narrativa.py/Narracion 13.mp3"])
+    
     jugador_.vida = jugador_.vida_max
     aliado_.vida = aliado_.vida_max
+    
     combate(jugador_, aliado_ if decision else None, paladin, fondo_castillo)        # comienza el cuarto combate
-    if jugador_.vida <= 0:
-        if mostrar_pantalla_game_over(pantalla, fuente):
-            main()
-        else:
-            pygame.quit()
-            sys.exit()
-
+    
     play_cinematic(["cinematicas/Castillo - Pasillos.png", "cinematicas/Castillo - Sala del clérigo.png"], ["narrativa.py/Narracion 14.mp3", "narrativa.py/Narracion 15.mp3"])    
     mostrar_creditos(pantalla)
 
