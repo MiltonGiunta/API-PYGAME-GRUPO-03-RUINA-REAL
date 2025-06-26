@@ -68,9 +68,14 @@ Popp Lautaro Roman
 Lopez Juan Jose
 Kuo Daniel Matias
 Quiroga Nicolas Juan Benjamin
+Salibi Maximiliano 
+
 Inspirado en: Shakes and Fidget
+
 Con ayuda de: ChatGPT, Gemini, Grok
+
 Música: pirateada con estilo
+
 Frase del dial
 "Un gran poder conlleva una gran responsabilidad."
 — Tío Ben
