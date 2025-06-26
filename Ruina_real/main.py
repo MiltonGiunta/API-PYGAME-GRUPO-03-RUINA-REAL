@@ -276,7 +276,6 @@ def main():
     imagen_bandido = pygame.transform.scale(pygame.image.load("assets.py/marco-bandido.png"), (200, 200))
     imagen_aldeanos = pygame.transform.scale(pygame.image.load("assets.py/marco_aldeanos.png"), (200, 200))
     #----------------------------PERSONAJES-----------------------------------#
-    play_cinematic(cinematic_images, cinematic_audio)
     #----------POSICION Y ESTADISITICAS DE LOS PERSONAJES---------------------#
     jugador_ = Personaje("Jugador", imagen_jugador, (560, 400), 2500, 750, 450)
     aliado_ = Personaje("Aliado", imagen_aliado, (560, 600), 1000, 500, 250)
@@ -285,6 +284,7 @@ def main():
     bandido = Personaje("Bandido", imagen_bandido, (240, 400), 2250, 400, 500)
     aldeanos = Personaje("Aldeanos", imagen_aldeanos, (240, 400), 3000, 550, 600)
     #----------POSICION Y ESTADISITICAS DE LOS PERSONAJES---------------------#
+    play_cinematic(cinematic_images, cinematic_audio)
     combate(jugador_, None, lobos)                                                    # comienza el primer combate 
 
     play_cinematic(["cinematicas/bosque1.jpeg", "cinematicas/bosque2.png"], ["narrativa.py/Narracion 7 A.mp3", "narrativa.py/Narracion 7 B.mp3"])
