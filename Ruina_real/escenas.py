@@ -5,41 +5,33 @@ from config import pantalla, fuente, TAMAÑO_FUENTE_CREDITOS, ANCHO, ALTO, NEGRO
 
 #----------------------------------CINEMATICAS----------------------------------------#
 def play_cinematic(image_files, audio_files):
-    # Aseguramos que haya la misma cantidad de imágenes que de audios
-    if len(image_files) != len(audio_files):
+    if len(image_files) != len(audio_files):                                            # Aseguramos que haya la misma cantidad de imágenes que de audios
         print("Error: La cantidad de imágenes y audios no coincide para la cinemática.")
         return
     pygame.mixer.music.set_volume(0.5)
 
-    # Iteramos sobre los índices para acceder a la imagen y su audio correspondiente
-    for i in range(len(image_files)):
-        # Cargar y escalar la imagen
-        try:
+    for i in range(len(image_files)):                                                   # Iteramos sobre los índices para acceder a la imagen y su audio correspondiente
+        try:                                                                            # Cargar y escalar la imagen
             img = pygame.transform.scale(pygame.image.load(image_files[i]), (ANCHO, ALTO))
         except pygame.error as e:
             print(f"Error al cargar la imagen {image_files[i]}: {e}")
-            continue # Pasa a la siguiente iteración si hay un error con la imagen
+            continue                                                                    # Pasa a la siguiente iteración si hay un error con la imagen
 
-        # Cargar y reproducir el audio
-        current_audio_path = audio_files[i]
+        current_audio_path = audio_files[i]                                             # Cargar y reproducir el audio
         try:
-            pygame.mixer.music.load(current_audio_path) # Usamos pygame.mixer.music para archivos largos
-            pygame.mixer.music.play() # Reproduce el audio una vez
+            pygame.mixer.music.load(current_audio_path)                                 # Usamos pygame.mixer.music para archivos largos
+            pygame.mixer.music.play()                                                   # Reproduce el audio una vez
         except pygame.error as e:
-            print(f"Error al cargar o reproducir el audio {current_audio_path}: {e}")
-            # Si hay un error con el audio, la cinemática puede continuar sin sonido
-            
+            print(f"Error al cargar o reproducir el audio {current_audio_path}: {e}")   # Si hay un error con el audio, la cinemática puede continuar sin sonido
         # Limpiar la pantalla antes de dibujar la nueva imagen y texto
-        pantalla.fill(NEGRO) # O el color de fondo que prefieras
-
+        pantalla.fill(NEGRO)                                                            # O el color de fondo que prefieras
         # Dibujar la imagen
         pantalla.blit(img, (0, 0))
-
         # Renderizar y posicionar el texto
         texto = fuente.render("Presiona A para continuar", True, (ROJO))
-        texto_rect = texto.get_rect(center=(ANCHO // 2, ALTO - 30)) # Ubicación más centrada y abajo
+        texto_rect = texto.get_rect(center=(ANCHO // 2, ALTO - 30))                    # Ubicación más centrada y abajo
         pantalla.blit(texto, texto_rect)
-        pygame.display.flip() # Actualiza la pantalla para mostrar la imagen y el texto
+        pygame.display.flip()                                                          # Actualiza la pantalla para mostrar la imagen y el texto
 
         esperando = True
         while esperando:
@@ -49,10 +41,9 @@ def play_cinematic(image_files, audio_files):
                     exit()
                 elif event.type == pygame.KEYDOWN and event.key == pygame.K_a:
                     esperando = False
-                    pygame.mixer.music.stop() # Detiene el audio actual antes de pasar al siguiente
-            
+                    pygame.mixer.music.stop()                                         # Detiene el audio actual antes de pasar al siguiente
             # Un pequeño delay para no consumir CPU innecesariamente en el bucle de eventos
-            pygame.time.Clock().tick(60) # Limita a 60 frames por segundo el bucle de espera
+            pygame.time.Clock().tick(60)                                              # Limita a 60 frames por segundo el bucle de espera
 
 #----------------------------------CINEMATICAS----------------------------------------#
 
