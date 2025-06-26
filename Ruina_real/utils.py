@@ -2,13 +2,12 @@ import pygame
 import time
 import random
 import sys
-from config import pantalla, reloj, ANCHO, TAMAÑO_FUENTE, AMARILLO, BLANCO
-
+from config import pantalla, reloj,ANCHO, TAMAÑO_FUENTE, AMARILLO, BLANCO
 
 
 # muestra la accion que realizan los personajes y muestra el tiempo que dura el mensaje
 mensaje_combate = ""                                                                         
-tiempo_mensaje = 0   
+tiempo_mensaje = 0 
 #------------------------------PROBABILIDAD ESQUIVE-----------------------------------#
 def esquiva(probabilidad_esquive):                                                          # probabilidad de esquivar
     return random.randint(1, 100) > probabilidad_esquive
@@ -73,4 +72,5 @@ def animacion_curacion(personaje, cantidad, pantalla, fondo, jugador=None, aliad
         pygame.display.flip()
         reloj.tick(60)
 #----------------------------ANIMACION DE CURACION------------------------------------#
+
 
