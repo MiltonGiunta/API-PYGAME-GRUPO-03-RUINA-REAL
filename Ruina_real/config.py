@@ -1,3 +1,6 @@
+import pygame
+
+
 # RESOLUCION #
 ANCHO, ALTO = 800, 800  # ancho y alto de la ventana
 
